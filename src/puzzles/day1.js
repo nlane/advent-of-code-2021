@@ -1,9 +1,9 @@
-import { readNumericInput } from '../utils/index.js';
-  
-const input = readNumericInput('src/inputs/day1.txt');
+import { readNumericInput } from "../utils/index.js";
+
+const input = readNumericInput("src/inputs/day1.txt");
 
 export default () => {
-    const countPart1 = input.reduce((prev, curr, idx) => {
+  const countPart1 = input.reduce((prev, curr, idx) => {
     if (idx === 0) return prev;
     if (input[idx - 1] < curr) return prev + 1;
     return prev;
@@ -19,4 +19,4 @@ export default () => {
   }, 0);
 
   console.log(countPart2);
-}
+};
