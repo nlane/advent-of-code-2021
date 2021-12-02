@@ -1,7 +1,8 @@
 import days from './src/index.js';
 
 const dayToCode = {
-  "1" : days.day1
+  "1" : days.day1,
+  "2" : days.day2
 }
 
 const main = () => {
