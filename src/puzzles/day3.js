@@ -11,12 +11,14 @@ const RATING_TYPE = {
 
 const findRating = (input, idx, type) => {
   if (input.length === 1) return input[0];
+
   const zeros = [];
   const ones = [];
   input.forEach((num) => {
     if (num[idx] === 1) ones.push(num);
     else zeros.push(num);
   });
+
   if (ones.length >= zeros.length && type === RATING_TYPE.oxy)
     return findRating(ones, idx + 1, type);
   else if (ones.length < zeros.length && type === RATING_TYPE.co)
@@ -45,16 +47,15 @@ export default () => {
   const gammaDec = parseInt(gamma.join(""), 2);
   const epsilonDec = parseInt(epsilon.join(""), 2);
 
-  console.log(gammaDec * epsilonDec);
+  console.log("part 1: ", gammaDec * epsilonDec);
 
   // part 2
 
   const oxy = findRating(input, 0, RATING_TYPE.oxy);
-
   const co2 = findRating(input, 0, RATING_TYPE.co);
 
   const oxyRating = parseInt(oxy.join(""), 2);
   const co2Rating = parseInt(co2.join(""), 2);
 
-  console.log(oxyRating * co2Rating);
+  console.log("part 2: ", oxyRating * co2Rating);
 };
