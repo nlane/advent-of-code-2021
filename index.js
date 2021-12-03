@@ -3,6 +3,7 @@ import days from "./src/index.js";
 const dayToCode = {
   1: days.day1,
   2: days.day2,
+  3: days.day3,
 };
 
 const main = () => {

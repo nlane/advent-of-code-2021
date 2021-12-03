@@ -6,6 +6,9 @@ export const readNumericInput = (filename) =>
     .split("\n")
     .map((el) => Number(el));
 
+export const readStringInput = (filename) =>
+  readFileSync(filename).toString("UTF8").split("\n");
+
 export const readDirectionalInput = (filename) => {
   return readFileSync(filename)
     .toString("UTF8")
