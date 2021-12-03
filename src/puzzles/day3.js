@@ -4,6 +4,26 @@ let input = readStringInput("src/inputs/day3.txt");
 
 input = input.map((el) => el.split("").map((digit) => parseInt(digit)));
 
+const RATING_TYPE = {
+  oxy: "OXYGEN",
+  co: "CO2",
+};
+
+const findRating = (input, idx, type) => {
+  if (input.length === 1) return input[0];
+  const zeros = [];
+  const ones = [];
+  input.forEach((num) => {
+    if (num[idx] === 1) ones.push(num);
+    else zeros.push(num);
+  });
+  if (ones.length >= zeros.length && type === RATING_TYPE.oxy)
+    return findRating(ones, idx + 1, type);
+  else if (ones.length < zeros.length && type === RATING_TYPE.co)
+    return findRating(ones, idx + 1, type);
+  return findRating(zeros, idx + 1, type);
+};
+
 export default () => {
   // part 1
   const gamma = [];
@@ -29,38 +49,12 @@ export default () => {
 
   // part 2
 
-  // find oxygen
-  const filteredOxy = [];
-  let currList = input;
-  for (let j = 0; j < currList[0].length && currList.length > 1; j++) {
-    const oneBucket = [];
-    const zeroBucket = [];
-    for (let i = 0; i < currList.length; i++) {
-      if (currList[i][j] === 0) zeroBucket.push(currList[i]);
-      else oneBucket.push(currList[i]);
-    }
-    if (oneBucket.length >= zeroBucket.length) currList = oneBucket;
-    else currList = zeroBucket;
-  }
+  const oxy = findRating(input, 0, RATING_TYPE.oxy);
 
-  const oxy = currList[0];
-
-  // find co2
-  const filteredCO2 = [];
-  currList = input;
-  for (let j = 0; j < currList[0].length && currList.length > 1; j++) {
-    const oneBucket = [];
-    const zeroBucket = [];
-    for (let i = 0; i < currList.length; i++) {
-      if (currList[i][j] === 0) zeroBucket.push(currList[i]);
-      else oneBucket.push(currList[i]);
-    }
-    if (oneBucket.length >= zeroBucket.length) currList = zeroBucket;
-    else currList = oneBucket;
-  }
+  const co2 = findRating(input, 0, RATING_TYPE.co);
 
   const oxyRating = parseInt(oxy.join(""), 2);
-  const co2Rating = parseInt(currList[0].join(""), 2);
+  const co2Rating = parseInt(co2.join(""), 2);
 
   console.log(oxyRating * co2Rating);
 };
