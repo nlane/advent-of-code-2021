@@ -4,6 +4,7 @@ const dayToCode = {
   1: days.day1,
   2: days.day2,
   3: days.day3,
+  4: days.day4,
 };
 
 const main = () => {
