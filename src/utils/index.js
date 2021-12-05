@@ -43,3 +43,12 @@ export const readBingoBoard = (filename) => {
   });
   return [drawnNums, boards];
 };
+
+export const readCoordInput = (filename) => {
+  const contents = readFileSync(filename).toString(UTF).split("\n");
+  return contents.map((row) =>
+    row
+      .split(" -> ")
+      .map((coords) => coords.split(",").map((str) => parseInt(str)))
+  );
+};
