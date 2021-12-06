@@ -52,3 +52,10 @@ export const readCoordInput = (filename) => {
       .map((coords) => coords.split(",").map((str) => parseInt(str)))
   );
 };
+
+export const readArrayInput = (filename) => {
+  return readFileSync(filename)
+    .toString(UTF)
+    .split(",")
+    .map((el) => parseInt(el));
+};
