@@ -7,6 +7,7 @@ const dayToCode = {
   4: days.day4,
   5: days.day5,
   6: days.day6,
+  7: days.day7,
 };
 
 const main = () => {
