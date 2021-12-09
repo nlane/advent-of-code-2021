@@ -72,3 +72,10 @@ export const readSignalInput = (filename) => {
       return output;
     });
 };
+
+export const read2D = (filename) => {
+  return readFileSync(filename)
+    .toString(UTF)
+    .split("\n")
+    .map((row) => row.split("").map((el) => parseInt(el)));
+};
