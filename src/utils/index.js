@@ -59,3 +59,16 @@ export const readArrayInput = (filename) => {
     .split(",")
     .map((el) => parseInt(el));
 };
+
+export const readSignalInput = (filename) => {
+  return readFileSync(filename)
+    .toString(UTF)
+    .split("\n")
+    .map((row) => row.split(" | "))
+    .map((row) => {
+      const output = {};
+      output.signals = row[0].split(" ");
+      output.digits = row[1].split(" ");
+      return output;
+    });
+};
