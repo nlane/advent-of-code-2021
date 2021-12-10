@@ -79,3 +79,10 @@ export const read2D = (filename) => {
     .split("\n")
     .map((row) => row.split("").map((el) => parseInt(el)));
 };
+
+export const read2DStr = (filename) => {
+  return readFileSync(filename)
+    .toString(UTF)
+    .split("\n")
+    .map((row) => row.split(""));
+};
