@@ -33,7 +33,6 @@ export default () => {
     if (result.status === "CORRUPT") {
       score += SCORE[result.character];
     } else {
-      // get the end part
       scores.push(
         result.rest.reverse().reduce((prev, curr) => {
           return prev * 5 + SCORE_PT2[curr];
