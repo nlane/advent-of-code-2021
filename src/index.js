@@ -8,6 +8,7 @@ import day7 from "./puzzles/day7.js";
 import day8 from "./puzzles/day8.js";
 import day9 from "./puzzles/day9.js";
 import day10 from "./puzzles/day10.js";
+import day11 from "./puzzles/day11.js";
 
 export default {
   day1,
@@ -20,4 +21,5 @@ export default {
   day8,
   day9,
   day10,
+  day11,
 };

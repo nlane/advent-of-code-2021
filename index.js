@@ -11,6 +11,7 @@ const dayToCode = {
   8: days.day8,
   9: days.day9,
   10: days.day10,
+  11: days.day11,
 };
 
 const main = () => {
